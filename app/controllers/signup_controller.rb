@@ -8,6 +8,9 @@ class SignupController < ApplicationController
         @role_id = Role.find_by(role_name: params[:role]).id
         @user = User.new(sign_up_params.merge(:role_id => @role_id))
         if(@user.save)
+          payload = { user_id: @user.id }
+          token = JsonWebToken.encode(payload)
+          response.set_header('Authorization', token)
           render json: @user
         else
           render json: @user.errors, status: :unprocessable_entity

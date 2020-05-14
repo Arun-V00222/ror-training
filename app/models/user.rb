@@ -30,14 +30,30 @@ class User < ApplicationRecord
     super(params)
   end
 
-
   def password_match?
     'Password must match Confirmation Password' if password!=password_confirmation
   end
 
-#
-#  def password_criteria_match?
-#    'Password criteria is not satisfied' if !password.match(PASSWORD_FORMAT)
-#  end
-#
+  #class methods
+  class << self
+    def current_user=(user)
+      Thread.current[:current_user] = user
+    end
+
+    def current_user
+      Thread.current[:current_user]
+    end
+
+    def update_password=(password)
+      begin
+        cuser = current_user
+        cuser.password = password
+        cuser.save!
+      rescue Exception => e
+        Rails.logger.error(e.message)
+        raise 'Password must match Confirmation Password'
+      end
+    end
+  end
+
 end
