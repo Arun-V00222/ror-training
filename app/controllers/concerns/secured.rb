@@ -4,15 +4,11 @@ module Secured
   extend ActiveSupport::Concern
 
   included do
-    before_action :authenticate_request!
-    before_action :set_current_user
+    before_action :authenticate_request! ,:except => [:register]
+    before_action :set_current_user ,:except => [:register]
   end
 
   private
-
-  def verify_private_api_key
-    request.headers['Api-Key'] && (request.headers['Api-Key'] == ENV['PRIVATE_API_KEY'])
-  end
 
   def authenticate_request!
     auth_token = getAuthToken

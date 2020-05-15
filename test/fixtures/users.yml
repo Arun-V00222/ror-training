@@ -9,7 +9,7 @@ sachin:
 tom:
   user_name: pickleman
   user_email: pickleman1@gmail.com
-  password_digest: <%= BCrypt::Password.create('Test123#') %>
+  password_digest: <%= BCrypt::Password.create('P@ssw0rd') %>
   role_id: 980190962
 
 harry:
