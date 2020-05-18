@@ -1,27 +1,24 @@
-# ror-training
-# Sample Application to implement ROR training modules
+# README
 
-Roles
-1) User
-2) Vendor
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-Use cases
+Things you may want to cover:
 
-User
-* User can login
-* User can browse available items
-* User can add the items to cart
-* User can order the items
-* User can view order history
-* User can view his wallet balance
+* Ruby version
 
-Vendor
-* Vendor can login
-* Vendor can upload items
-* Vendor can see the ordered items from his uploads
+* System dependencies
 
-Jobs
-* Login email
-* Cron to load the wallet amount of Rs.1000 every week
-* Order placed email
-* Order received email
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...

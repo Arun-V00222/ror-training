@@ -1,0 +1,31 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+sachin:
+  user_name: Empty user
+  user_email:
+  password_digest:
+  role_id: 980190962
+
+tom:
+  user_name: pickleman
+  user_email: pickleman1@gmail.com
+  password_digest: <%= BCrypt::Password.create('P@ssw0rd') %>
+  role_id: 980190962
+
+harry:
+  user_name: harry
+  user_email: harry1@gmail.com
+  password_digest: <%= BCrypt::Password.create('lol') %>
+  role_id: 980190963
+
+rohit:
+  user_name: rohit
+  user_email: rohit
+  password_digest: <%= BCrypt::Password.create('Test123#') %>
+  role_id: 980190963
+
+ashwin:
+  user_name: ashwin
+  user_email: ashwin@yopmail.com
+  password_digest: <%= BCrypt::Password.create('Test123#') %>
+  role_id: 980190966
