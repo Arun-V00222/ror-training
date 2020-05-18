@@ -1,5 +1,7 @@
 class TransactionController < ApplicationController
 
+  before_action :set_transaction, only: [:show]
+
   # GET /transaction
   def index
     @user = User.current_user
