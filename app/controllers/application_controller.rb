@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::API
+  include Pagy::Backend
   include Secured
   include ExceptionHandler
 

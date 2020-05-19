@@ -5,9 +5,9 @@ class TransactionController < ApplicationController
   # GET /transaction
   def index
     @user = User.current_user
-    @transactions = @user.transactions.all
-    render json: @transactions
-
+    @record_count = @user.transactions.count
+    @pagy, @transactions = pagy(@user.transactions.all, page: params[:page], items: 10)
+    render json: {total_records: @record_count, transaction: @transactions}
   end
 
   # GET /transaction/1
@@ -38,7 +38,7 @@ class TransactionController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_transaction
       @user = User.current_user
-      @wallet = @user.transactions.find(params[:id])
+      @transaction = @user.transactions.find(params[:id])
     end
 
 end

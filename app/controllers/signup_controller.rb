@@ -10,6 +10,7 @@ class SignupController < ApplicationController
         if(@user.save)
           payload = { user_id: @user.id }
           token = JsonWebToken.encode(payload)
+          UserMailer.with(user: @user).welcome_email.deliver_later
           response.set_header('Authorization', token)
           render json: @user
         else

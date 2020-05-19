@@ -4,8 +4,9 @@ class WalletsController < ApplicationController
   # GET /wallets
   def index
     @user = User.current_user
-    @wallets = @user.wallets.all
-    render json: @wallets
+    @record_count = @user.wallets.count
+    @pagy, @wallets = pagy(@user.wallets.all, page: params[:page], items: 10)
+    render json: {total_records: @record_count, wallets: @wallets}
   end
 
   # GET /wallets/1

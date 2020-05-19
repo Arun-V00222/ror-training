@@ -19,6 +19,9 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Json Web Token (JWT) for token based authentication
 gem 'jwt'
 
+# Pagination
+gem 'pagy', '~> 3.8.1'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

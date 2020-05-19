@@ -24,6 +24,12 @@ class Transaction < ApplicationRecord
       @wallet.amount += @transaction_amount
       @wallet.update!(amount: @wallet.amount)
     end
+    @mail_params = Hash.new
+    @mail_params[:amount] = @transaction_amount
+    @mail_params[:sender] = User.current_user.user_name
+    @mail_params[:receiver_email] = User.find_by_id(@last_transaction.receiver_id).user_email
+    @mail_params[:receiver_name] = User.find_by_id(@last_transaction.receiver_id).user_name
+    TransactionMailer.with(transaction: @mail_params).transaction_email.deliver_later
   end
   #class methods
   class << self
