@@ -1,0 +1,4 @@
+delete_user:
+  cron: "*/30 * * * *"
+  class: "InactiveUserCleanupJob"
+  queue: inactive_user_cleanup

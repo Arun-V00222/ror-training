@@ -26,6 +26,10 @@ gem 'redis-namespace'
 gem 'redis-rails'
 gem 'redis-rack-cache'
 
+# Sidekiq
+gem "sidekiq"
+gem "sidekiq-cron"
+
 # Pagination
 gem 'pagy', '~> 3.8.1'
 

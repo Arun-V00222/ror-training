@@ -9,5 +9,4 @@ Rails.application.routes.draw do
       post :login
       put :update_password
   end
-
 end
