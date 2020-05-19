@@ -19,6 +19,13 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Json Web Token (JWT) for token based authentication
 gem 'jwt'
 
+# Enable Redis caching
+gem 'redis'
+gem 'hiredis'
+gem 'redis-namespace'
+gem 'redis-rails'
+gem 'redis-rack-cache'
+
 # Pagination
 gem 'pagy', '~> 3.8.1'
 

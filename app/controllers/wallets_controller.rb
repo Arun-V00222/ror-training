@@ -3,9 +3,14 @@ class WalletsController < ApplicationController
 
   # GET /wallets
   def index
+    @wallets =  Rails.cache.read("wallets")
+    Rails.logger.info("Wallets info : #{@wallets}")
     @user = User.current_user
+    if @wallets.nil?
+      @pagy, @wallets = pagy(@user.wallets.all, page: params[:page], items: 10)
+      Rails.cache.write("wallets", @wallets)
+    end
     @record_count = @user.wallets.count
-    @pagy, @wallets = pagy(@user.wallets.all, page: params[:page], items: 10)
     render json: {total_records: @record_count, wallets: @wallets}
   end
 
